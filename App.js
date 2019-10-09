@@ -39,7 +39,7 @@ export default class App extends React.Component {
           </Body>
           <Right />
         </Header>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Text>bleblelele</Text>
       </Container>
     );
   }
