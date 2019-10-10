@@ -1,14 +1,16 @@
 import React from 'react';
 import { AppLoading } from 'expo';
-import { Container, Text, Header, Body, Left, Right, Button, Icon, Title } from 'native-base';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
+import Home from './assets/components/Home';
+import Login from './assets/components/Login';
 
-export default class App extends React.Component {
+class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isReady: false,
+      isLogin: false,
     };
   }
 
@@ -27,20 +29,9 @@ export default class App extends React.Component {
     }
 
     return (
-      <Container>
-         <Header>
-          <Left>
-            <Button transparent>
-              <Icon name='menu' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Header</Title>
-          </Body>
-          <Right />
-        </Header>
-        <Text>bleblelele</Text>
-      </Container>
+      this.state.isLogin ? <Home /> : <Login />
     );
   }
 }
+
+export default App;
