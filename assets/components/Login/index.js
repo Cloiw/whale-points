@@ -14,27 +14,27 @@ class Login extends Component {
             <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo'}} >WhalePoints</Text>
             </Col>
           </Row>
-        <Row size={25}  style={{alignItems:'center'}}>
-          <Col>
-            <Form style={{width:'90%', justifyContent:'center', alignSelf: 'center'}}>
-              <Item style={styles.item} stackedLabel>
-                <Label style={styles.label}>Usuario</Label>
-                <Input style={styles.input} />
-              </Item>
-              <Item style={styles.item} stackedLabel last>
-                <Label style={styles.label}>Contraseña</Label>
-                <Input style={styles.input} />
-              </Item>
-            </Form>
-          </Col>
-        </Row>
-        <Row size={35} style={{justifyContent:'center', alignItems: 'center'}}>
-          <Button style={{backgroundColor: '#008AC5', width: '90%', height: '20%', alignSelf: 'flex-start'}}>
-            <Text>Entrar</Text>
-          </Button>
-        </Row>
-      </Grid>
-    </Container>
+          <Row size={25}  style={{alignItems:'center'}}>
+            <Col>
+              <Form style={{width:'90%', justifyContent:'center', alignSelf: 'center'}}>
+                <Item style={styles.item} stackedLabel>
+                  <Label style={styles.label}>Usuario</Label>
+                  <Input style={styles.input} />
+                </Item>
+                <Item style={styles.item} stackedLabel last>
+                  <Label style={styles.label}>Contraseña</Label>
+                  <Input style={styles.input} />
+                </Item>
+              </Form>
+            </Col>
+          </Row>
+          <Row size={35} style={{justifyContent:'center', alignItems: 'center'}}>
+            <Button style={{backgroundColor: '#008AC5', width: '90%', height: '20%', alignSelf: 'flex-start'}}>
+              <Text>Entrar</Text>
+            </Button>
+          </Row>
+        </Grid>
+      </Container>
     );
   }
 }
