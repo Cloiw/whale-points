@@ -22,6 +22,13 @@ const Home = () => (
             </TabHeading>}>
             <Login />
           </Tab>
+          <Tab heading={ 
+            <TabHeading>
+              <Icon type="AntDesign" name="exclamationcircle" />
+              <Text>Solicitudes</Text>
+            </TabHeading>}>
+            <ScoreTable />
+          </Tab>
         </Tabs>
       </Container>
 )
