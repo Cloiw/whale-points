@@ -1,22 +1,21 @@
 import React from 'react';
-import { Container, Text, Header, Body, Left, Right, Button, Icon, Title } from 'native-base';
+import { Container, Text, Header, Body, Left, Right, Button, Icon, Title, Content, Tab, Tabs } from 'native-base';
+import ScoreTable from '../ScoreTable';
+import Login from '../Login'
 
 const Home = () => (
 
   <Container>
-    <Header>
-      <Left>
-        <Button transparent>
-          <Icon name='menu' />
-        </Button>
-      </Left>
-      <Body>
-        <Title>Header</Title>
-      </Body>
-      <Right />
-    </Header>
-    <Text>bleblelele</Text>
-  </Container>
+        <Header hasTabs />
+        <Tabs>
+          <Tab heading="Puntajes">
+            <ScoreTable />
+          </Tab>
+          <Tab heading="+ - Puntos">
+            <Login />
+          </Tab>
+        </Tabs>
+      </Container>
 )
 
 export default Home;

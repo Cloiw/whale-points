@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native'
 import { Container, Header, Content, Form, Item, Input, Label, Button, Text, Grid, Col, Row, Right } from 'native-base';
-import { AuthSession } from 'expo';
+
 
 class Login extends Component {
   render() {
@@ -29,7 +29,7 @@ class Login extends Component {
             </Col>
           </Row>
           <Row size={35} style={{justifyContent:'center', alignItems: 'center'}}>
-            <Button style={{backgroundColor: '#008AC5', width: '90%', height: '20%', alignSelf: 'flex-start'}}>
+            <Button onPress={() => this.props.changeLoginStatus()}style={{backgroundColor: '#008AC5', width: '90%', height: '20%', alignSelf: 'flex-start'}}>
               <Text>Entrar</Text>
             </Button>
           </Row>

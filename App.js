@@ -12,6 +12,7 @@ class App extends React.Component {
       isReady: false,
       isLogin: false,
     };
+    this.changeLogin = this.changeLogin.bind(this)
   }
 
   async componentDidMount() {
@@ -24,13 +25,20 @@ class App extends React.Component {
     this.setState({ isReady: true });
   }
 
+  changeLogin() {
+    console.log("change view")
+    this.setState({
+      isLogin: true
+    })
+  }
+
   render() {
     if (!this.state.isReady) {
       return <AppLoading />;
     }
 
     return (
-      this.state.isLogin ? <Home /> : <Login />
+      this.state.isLogin ? <Home /> : <Login changeLoginStatus={this.changeLogin} />
     );
   }
 }
