@@ -29,6 +29,13 @@ const Home = () => (
             </TabHeading>}>
             <ScoreTable />
           </Tab>
+          <Tab heading={ 
+            <TabHeading>
+              <Icon type="MaterialIcons" name="history" />
+              <Text>Historial</Text>
+            </TabHeading>}>
+            <ScoreTable />
+          </Tab>
         </Tabs>
       </Container>
 )
