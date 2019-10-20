@@ -11,10 +11,11 @@ const Home = () => (
           <Tab heading={ 
             <TabHeading>
               <Icon type="MaterialCommunityIcons" name="table-of-contents" />
-              <Text>Puntajes</Text>
+              <Text>Puntaje</Text>
             </TabHeading>}>
             <ScoreTable />
           </Tab>
+          
           <Tab  heading={ 
             <TabHeading>
               <Icon type="MaterialCommunityIcons" name="calculator-variant" />
@@ -32,7 +33,7 @@ const Home = () => (
           <Tab heading={ 
             <TabHeading>
               <Icon type="MaterialIcons" name="history" />
-              <Text>Historial</Text>
+              <Text>Historial </Text>
             </TabHeading>}>
             <ScoreTable />
           </Tab>
