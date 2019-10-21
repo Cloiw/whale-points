@@ -29,30 +29,30 @@ class Home extends Component {
             </Col>
           </Row>
           <Row size={80} style={{}}>
-            <Tabs style={{backgroundColor: '#008AC5'}}>
-              <Tab heading={ 
-                <TabHeading>
+            <Tabs>
+              <Tab  heading={ 
+                <TabHeading style={styles.tabs}>
                   <Icon type="MaterialCommunityIcons" name="table-of-contents" />
                   <Text></Text>
                 </TabHeading>}>
                 <ScoreTable />
               </Tab>
               <Tab heading={ 
-                <TabHeading>
+                <TabHeading style={styles.tabs}>
                   <Icon type="MaterialCommunityIcons" name="calculator-variant" />
                   <Text></Text>
                 </TabHeading>}>
                 <Login />
               </Tab>
               <Tab heading={ 
-                <TabHeading>
+                <TabHeading style={styles.tabs}>
                   <Icon type="AntDesign" name="exclamationcircle" />
                   <Text></Text>
                 </TabHeading>}>
                 <ScoreTable />
               </Tab>
               <Tab heading={ 
-                <TabHeading>
+                <TabHeading style={styles.tabs}>
                   <Icon type="MaterialIcons" name="history" />
                   <Text></Text>
                 </TabHeading>}>
@@ -84,6 +84,10 @@ const styles = StyleSheet.create({
   headerInfoColumn: {
     height: '100%',
     justifyContent: 'flex-end'
+  },
+  tabs: {
+    backgroundColor:'#008AC5',
+    justifySelf: 'center'
   }
 })
 
