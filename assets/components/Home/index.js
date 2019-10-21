@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
   },
   tabs: {
     backgroundColor:'#008AC5',
-    justifySelf: 'center'
   }
 })
 
