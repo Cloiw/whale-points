@@ -7,6 +7,7 @@ class InfoCard extends Component {
     return (
       <Card>
         <CardItem>
+            <Text  style={{fontSize: 30, fontFamily: 'Baloo', marginRight: 10}} >{this.props.ranking}</Text>
           <Left>
             <Thumbnail large source={{uri:this.props.image}} />
             <Body>
