@@ -11,7 +11,7 @@ export default class InfoCard extends Component {
                 <Thumbnail large source={{uri:this.props.image}} />
                 <Body>
                   <Text style={{fontSize: 30, fontFamily: 'Baloo'}}>{this.props.name}</Text>
-                  <Text style={{fontSize: 20, fontFamily: 'Baloo', color:'red'}}>{this.props.points}olaa</Text>
+                  <Text style={this.props.points < 0 ? styles.redText : styles.blueText}>{this.props.points} 🐳</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -20,3 +20,16 @@ export default class InfoCard extends Component {
   }
 }
 
+const styles = StyleSheet.create({
+  blueText: {
+    fontSize: 20,
+    fontFamily: 'Baloo',
+    color: '#3D88A9'
+  },
+  redText: {
+    fontSize: 20,
+    fontFamily: 'Baloo',
+    color: '#F10000'
+  },
+ 
+})
