@@ -11,9 +11,9 @@ class Home extends Component {
         <Grid>
           <Row size={20} style={{ backgroundColor: '#008AC5', height: '100%'}}>
             <Col style={styles.headerThumbailColumn}>
-              <Thumbnail large source={'https://i.ibb.co/z5h63TR/lokibb.jpg'} style={styles.thumbnail} />
+              <Thumbnail large source={{uri:'https://i.ibb.co/z5h63TR/lokibb.jpg'}} style={styles.thumbnail} />
               <Row size={1}>
-              <Content style={styles.blueBackground}></Content>
+              <Content></Content>
               </Row>
               <Row size={1}>
                 <Content style={styles.whiteBackground}></Content>
@@ -32,29 +32,25 @@ class Home extends Component {
             <Tabs>
               <Tab  heading={ 
                 <TabHeading style={styles.tabs}>
-                  <Icon type="MaterialCommunityIcons" name="table-of-contents" />
-                  <Text></Text>
+                  <Icon type="FontAwesome" name="list" />
                 </TabHeading>}>
                 <ScoreTable />
               </Tab>
               <Tab heading={ 
                 <TabHeading style={styles.tabs}>
                   <Icon type="MaterialCommunityIcons" name="calculator-variant" />
-                  <Text></Text>
                 </TabHeading>}>
                 <Login />
               </Tab>
               <Tab heading={ 
                 <TabHeading style={styles.tabs}>
-                  <Icon type="AntDesign" name="exclamationcircle" />
-                  <Text></Text>
+                  <Icon type="FontAwesome" name="exclamation-circle" />
                 </TabHeading>}>
                 <ScoreTable />
               </Tab>
               <Tab heading={ 
                 <TabHeading style={styles.tabs}>
-                  <Icon type="MaterialIcons" name="history" />
-                  <Text></Text>
+                  <Icon type="FontAwesome" name="history" />
                 </TabHeading>}>
                 <ScoreTable />
               </Tab>
