@@ -1,11 +1,15 @@
 import React from 'react';
-import { Container, Text, Header, Body, Left, Right, Button, Icon, Title, Content, Tab, Tabs } from 'native-base';
+import { Container, Content } from 'native-base';
+import InfoCard from '../InfoCard'
 
 const ScoreTable = () => (
 
-  <Container>
-     <Text>Hola</Text>
-      </Container>
+  <Container style={{backgroundColor:'#E7E7E7'}}>
+    <Content>
+      <InfoCard image={'https://i.ibb.co/z5h63TR/lokibb.jpg'} name={"cloiw"} points={57777}/>
+      <InfoCard image={'https://i.ibb.co/z5h63TR/lokibb.jpg'} name={"cloiwclon"} points={-577}/>
+     </Content>
+  </Container>
 )
 
 export default ScoreTable;
