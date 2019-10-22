@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet } from 'react-native'
 import { Container, Text, Header, Grid, TabHeading, Row, Button, Icon, Col, Content, Tab, Tabs, Thumbnail } from 'native-base';
 import ScoreTable from '../ScoreTable';
-import Login from '../Login'
+import SelectUser from '../SelectUser'
 
 class Home extends Component {
   render(){
@@ -40,7 +40,7 @@ class Home extends Component {
                 <TabHeading style={styles.tabs}>
                   <Icon type="MaterialCommunityIcons" name="calculator-variant" />
                 </TabHeading>}>
-                <Login />
+                <SelectUser />
               </Tab>
               <Tab heading={ 
                 <TabHeading style={styles.tabs}>
