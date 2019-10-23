@@ -5,6 +5,19 @@ import ScoreTable from '../ScoreTable';
 import SelectUser from '../SelectUser'
 
 class Home extends Component {
+  constructor(props){
+    super(props);
+    this.state = { currentTabPosition: 0};
+    this.getPositionTab = this.getPositionTab.bind(this);
+    
+  }
+  
+  getPositionTab(i) {
+    this.setState({
+      currentTabPosition: i
+    })
+  }
+
   render(){
     return (
       <Container style={{backgroundColor:'#E7E7E7'}}>
@@ -29,7 +42,7 @@ class Home extends Component {
             </Col>
           </Row>
           <Row size={80} style={{}}>
-            <Tabs>
+            <Tabs locked onChangeTab={({ i }) => this.getPositionTab(i)}>
               <Tab  heading={ 
                 <TabHeading style={styles.tabs}>
                   <Icon type="FontAwesome" name="list" />
@@ -40,7 +53,7 @@ class Home extends Component {
                 <TabHeading style={styles.tabs}>
                   <Icon type="MaterialCommunityIcons" name="calculator-variant" />
                 </TabHeading>}>
-                <SelectUser />
+                <SelectUser tabPosition={this.state.currentTabPosition} />
               </Tab>
               <Tab heading={ 
                 <TabHeading style={styles.tabs}>

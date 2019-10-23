@@ -4,7 +4,7 @@ import { Card, CardItem, Thumbnail, Text, Left, Body } from 'native-base';
 class UserNamePhotoCard extends Component {
   render() {
     return (
-      <Card style={{width: '45%'}}>
+      <Card>
         <CardItem style={{alignSelf: 'center'}}>
           <Thumbnail large source={{uri:this.props.image}} />
         </CardItem>
