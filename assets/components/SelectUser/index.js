@@ -48,7 +48,7 @@ class SelectUser extends Component {
               </TouchableOpacity>
             </Row>
           </Content> 
-          ) : <Calculator image={this.state.image} name="nombre" />
+          ) : <Calculator image={this.state.image} name="nombreee" />
         }
       </Container>
     )
