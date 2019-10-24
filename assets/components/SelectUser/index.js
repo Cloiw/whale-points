@@ -9,31 +9,19 @@ class SelectUser extends Component {
     super(props);
     this.state = { changeView: false };
     this.changeView = this.changeView.bind(this)
-    this.recoverView = this.recoverView.bind(this)
   }
 
   changeView(data, image) {
-    console.log(data, this.state.changeView)
     this.setState({
-      changeView : !this.state.changeView,
-      image: image
+      image: image,
+      changeView: !this.state.changeView
     })
   }
 
-  recoverView() {
-    if (this.props.tabPosition != 1 ) {
-      console.log("funcion")
-      this.setState({
-        changeView: false
-      })
-    }
-  }
-
   render(){
-    this.recoverView()
     return(
       <Container style={{backgroundColor:'#E7E7E7'}}>
-        {!this.state.changeView  ? (
+        {!this.state.changeView ? (
           <Content>
             <Text style={{fontSize: 20, fontFamily: 'Baloo', marginLeft: 10, marginTop: 10, color: '#3D88A9'}}>Selecciona un usuario</Text>
             <Row style={{flexWrap:'wrap', width:'100%', justifyContent:'center'}}>
@@ -48,8 +36,7 @@ class SelectUser extends Component {
               </TouchableOpacity>
             </Row>
           </Content> 
-          ) : <Calculator image={this.state.image} name="nombreee" />
-        }
+          ) : <Calculator image={this.state.image} name="nombreee" /> }
       </Container>
     )
   }

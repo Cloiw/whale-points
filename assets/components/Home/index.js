@@ -53,7 +53,8 @@ class Home extends Component {
                 <TabHeading style={styles.tabs}>
                   <Icon type="MaterialCommunityIcons" name="calculator-variant" />
                 </TabHeading>}>
-                <SelectUser tabPosition={this.state.currentTabPosition} />
+                  {this.state.currentTabPosition === 1 && 
+                  <SelectUser tabPosition={this.state.currentTabPosition} /> }
               </Tab>
               <Tab heading={ 
                 <TabHeading style={styles.tabs}>
