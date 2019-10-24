@@ -18,10 +18,10 @@ class Calculator extends Component {
               <TextInput editable  style={styles.textInput} maxLength={7} />
             </Row>
             <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
-              <Button style={styles.addOrSubButton}>
+              <Button style={[{backgroundColor: '#3D88A9'},styles.addOrSubButton]}>
                 <Text style={styles.buttonText}>SUMAR</Text>
               </Button>
-              <Button style={styles.addOrSubButton}>
+              <Button style={[{backgroundColor: '#ED6A6A'},styles.addOrSubButton]}>
                 <Text style={styles.buttonText}>RESTAR</Text>
               </Button>
             </Row>
@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   addOrSubButton: {
-    backgroundColor: '#008AC5',
     width: '45%', 
     height: '90%',
     justifyContent:'center'
