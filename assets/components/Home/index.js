@@ -42,7 +42,7 @@ class Home extends Component {
             </Col>
           </Row>
           <Row size={80} style={{}}>
-            <Tabs initialPage={0} locked={true} onChangeTab={({ i }) => this.getPositionTab(i)}>
+            <Tabs scrollWithoutAnimation={true} initialPage={0} locked={true} onChangeTab={({ i }) => this.getPositionTab(i)}>
               <Tab  heading={ 
                 <TabHeading style={styles.tabs}>
                   <Icon type="FontAwesome" name="list" />
