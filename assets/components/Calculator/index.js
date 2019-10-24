@@ -19,36 +19,36 @@ class Calculator extends Component {
             </Row>
             <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
               <Button style={[{backgroundColor: '#3D88A9'},styles.addOrSubButton]}>
-                <Text style={styles.buttonText}>SUMAR</Text>
+                <Text style={[styles.buttonText, {fontSize: 15}]}>SUMAR</Text>
               </Button>
               <Button style={[{backgroundColor: '#ED6A6A'},styles.addOrSubButton]}>
-                <Text style={styles.buttonText}>RESTAR</Text>
+                <Text style={[styles.buttonText, {fontSize: 15}]}>RESTAR</Text>
               </Button>
             </Row>
           </Col>
         </Row>
         <Row size={80}>
           <Col>
-            <Row size={1}>
+            <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
               <Button>
-                <Text>+10</Text>
+                <Text style={styles.buttonText}>+1</Text>
               </Button>
               <Button>
-                <Text>+10</Text>
+                <Text style={styles.buttonText}>+10</Text>
               </Button>
               <Button>
-                <Text>+10</Text>
+                <Text style={styles.buttonText}>+50</Text>
               </Button>
             </Row>
             <Row size={1}>
               <Button>
-                <Text>+10</Text>
+                <Text style={styles.buttonText}>-1</Text>
               </Button>
               <Button>
-                <Text>+10</Text>
+                <Text style={styles.buttonText}>-10</Text>
               </Button>
               <Button>
-                <Text>+10</Text>
+                <Text style={styles.buttonText}>-50</Text>
               </Button>
             </Row>
             <Row size={2}>
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontFamily: 'Baloo',
-    fontSize: 15,
+    fontSize: 25,
   }
 })
 
