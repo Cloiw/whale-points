@@ -5,7 +5,7 @@ import { Col, Row, Thumbnail, Text, Button, Grid } from 'native-base';
 class Calculator extends Component {
   render() {
     return (
-      <Grid style={{backgroundColor: 'white'}}>
+      <Grid style={{backgroundColor: '#E7E7E7'}}>
         <Row size={30}>
           <Col style={{alignItems: 'center', justifyContent: 'center'}}>
             <Thumbnail large source={{uri:this.props.image}} />
@@ -28,7 +28,33 @@ class Calculator extends Component {
           </Col>
         </Row>
         <Row size={80}>
-          <Text>Oli</Text>
+          <Col>
+            <Row size={1}>
+              <Button>
+                <Text>+10</Text>
+              </Button>
+              <Button>
+                <Text>+10</Text>
+              </Button>
+              <Button>
+                <Text>+10</Text>
+              </Button>
+            </Row>
+            <Row size={1}>
+              <Button>
+                <Text>+10</Text>
+              </Button>
+              <Button>
+                <Text>+10</Text>
+              </Button>
+              <Button>
+                <Text>+10</Text>
+              </Button>
+            </Row>
+            <Row size={2}>
+              <Text>VOLVER</Text>
+            </Row>
+          </Col>
         </Row>
       </Grid>
     );
@@ -44,7 +70,7 @@ const styles = StyleSheet.create({
   },
   pointsRow: {
     width:'90%', 
-    backgroundColor:'#E7E7E7', 
+    backgroundColor:'white', 
     alignSelf: 'center', 
     alignItems: 'center', 
     justifyContent: 'flex-end', 
