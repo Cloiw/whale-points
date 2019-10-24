@@ -26,7 +26,7 @@ class SelectUser extends Component {
             <Text style={{fontSize: 20, fontFamily: 'Baloo', marginLeft: 10, marginTop: 10, color: '#3D88A9'}}>Selecciona un usuario</Text>
             <Row style={{flexWrap:'wrap', width:'100%', justifyContent:'center'}}>
               <TouchableOpacity style={{width: '45%', margin:'1%'}} onPress={() => this.changeView("cloiwclon1", 'https://i.ibb.co/z5h63TR/lokibb.jpg')}>
-                <UserNamePhotoCard image={'https://i.ibb.co/z5h63TR/lokibb.jpg'} name={"cloiwclon1"} />
+                <UserNamePhotoCard points={500} image={'https://i.ibb.co/z5h63TR/lokibb.jpg'} name={"cloiwclon1"} />
               </TouchableOpacity>
               <TouchableOpacity style={{width: '45%', margin:'1%'}} onPress={() => console.log("ola2")}>
                 <UserNamePhotoCard image={'https://i.ibb.co/z5h63TR/lokibb.jpg'} name={"cloiwc lon1"} />
