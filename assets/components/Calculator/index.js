@@ -21,38 +21,36 @@ class Calculator extends Component {
             <Row size={3} style={styles.pointsRow}>
               <Text style={styles.textInput}>{this.state.points}</Text>
             </Row>
-            <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
-              <Button style={[{backgroundColor: '#3D88A9'},styles.addOrSubButton]}>
-                <Text style={[styles.buttonText, {fontSize: 10}]}>SUMAR</Text>
-              </Button>
-              <Button style={[{backgroundColor: '#ED6A6A'},styles.addOrSubButton]}>
-                <Text style={[styles.buttonText, {fontSize: 10}]}>RESTAR</Text>
-              </Button>
-            </Row>
           </Col>
         </Row>
         <Row size={60}>
           <Col>
             <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
-              <Button>
+              <Button style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
                 <Text style={styles.buttonText}>+1</Text>
               </Button>
-              <Button>
+              <Button style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
                 <Text style={styles.buttonText}>+10</Text>
               </Button>
-              <Button>
+              <Button style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
                 <Text style={styles.buttonText}>+50</Text>
               </Button>
+              <Button style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
+                <Text style={styles.buttonText}>+100</Text>
+              </Button>
             </Row>
-            <Row size={1}>
-              <Button>
+            <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
+              <Button style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
                 <Text style={styles.buttonText}>-1</Text>
               </Button>
-              <Button>
+              <Button style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
                 <Text style={styles.buttonText}>-10</Text>
               </Button>
-              <Button>
+              <Button style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
                 <Text style={styles.buttonText}>-50</Text>
+              </Button>
+              <Button style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
+                <Text style={styles.buttonText}>-100</Text>
               </Button>
             </Row>
             <Row size={2}>
@@ -87,14 +85,15 @@ const styles = StyleSheet.create({
     fontFamily: 'Baloo',
     margin: 10
   },
-  addOrSubButton: {
-    width: '45%', 
-    height: '90%',
-    justifyContent:'center'
+  buttonCalculator: {
+    flex: 1,
+    justifyContent:'center',
+    height: '80%',
+    margin: '1%'
   },
   buttonText: {
     fontFamily: 'Baloo',
-    fontSize: 20,
+    fontSize: 14,
   }
 })
 
