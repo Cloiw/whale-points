@@ -35,14 +35,14 @@ class Calculator extends Component {
           <Col style={{margin: 10}}>
             <Row size={1} style={{justifyContent:'space-between', alignItems: 'center'}}>
               {this.calculatorAddButtons.map(element => 
-              <Button  onPress={() => this.calculator(element)} style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
+              <Button key={element} onPress={() => this.calculator(element)} style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
                 <Text style={styles.buttonText}>+{element}</Text>
               </Button>
               )}
             </Row>
             <Row size={1} style={{justifyContent:'space-between', alignItems: 'center'}}>
               {this.calculatorSubButtons.map(element => 
-              <Button  onPress={() => this.calculator(element)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
+              <Button key={element} onPress={() => this.calculator(element)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
                 <Text style={styles.buttonText}>{element}</Text>
               </Button>
               )}
