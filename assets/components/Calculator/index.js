@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, TextInput } from 'react-native'
-import { Col, Row, Thumbnail, Text, Button, Grid } from 'native-base';
+import { Col, Row, Thumbnail, Text, Button, Grid, Input } from 'native-base';
 
 class Calculator extends Component {
   render() {
     return (
       <Grid style={{backgroundColor: '#E7E7E7'}}>
-        <Row size={30}>
+        <Row size={40}>
           <Col style={{alignItems: 'center', justifyContent: 'center'}}>
             <Thumbnail large source={{uri:this.props.image}} />
           </Col>
@@ -15,19 +15,19 @@ class Calculator extends Component {
               <Text style={styles.nameText}>{this.props.name}</Text>
             </Row>
             <Row size={3} style={styles.pointsRow}>
-              <TextInput editable  style={styles.textInput} maxLength={7} />
+              <Input style={styles.textInput} maxLength={7} />
             </Row>
             <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
               <Button style={[{backgroundColor: '#3D88A9'},styles.addOrSubButton]}>
-                <Text style={[styles.buttonText, {fontSize: 15}]}>SUMAR</Text>
+                <Text style={[styles.buttonText, {fontSize: 10}]}>SUMAR</Text>
               </Button>
               <Button style={[{backgroundColor: '#ED6A6A'},styles.addOrSubButton]}>
-                <Text style={[styles.buttonText, {fontSize: 15}]}>RESTAR</Text>
+                <Text style={[styles.buttonText, {fontSize: 10}]}>RESTAR</Text>
               </Button>
             </Row>
           </Col>
         </Row>
-        <Row size={80}>
+        <Row size={60}>
           <Col>
             <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
               <Button>
@@ -64,9 +64,8 @@ class Calculator extends Component {
 const styles = StyleSheet.create({
   nameText: {
     fontSize: 20, 
-    marginTop: 10, 
+    margin: 10, 
     fontFamily: 'Baloo', 
-    justifySelf: 'flex-start'
   },
   pointsRow: {
     width:'90%', 
@@ -77,11 +76,10 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   textInput: {
-    width:'100%',
-    textAlign:'right',
+    width:'80%',
     fontSize: 35,
     fontFamily: 'Baloo',
-    marginRight: 10
+    margin: 10
   },
   addOrSubButton: {
     width: '45%', 
@@ -90,7 +88,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontFamily: 'Baloo',
-    fontSize: 25,
+    fontSize: 20,
   }
 })
 
