@@ -6,11 +6,19 @@ class Calculator extends Component {
   constructor(props) {
     super(props)
     this.state = { points : 0 }
+    this.calculator = this.calculator.bind(this)
+    this.calculatorAddButtons = [+1, +10, +50, +100]
+    this.calculatorSubButtons = [-1, -10, -50, -100]
+  }
+
+  calculator(value) {
+    this.setState({
+      points: this.state.points + value})
   }
   render() {
     return (
       <Grid style={{backgroundColor: '#E7E7E7'}}>
-        <Row size={40}>
+        <Row size={30}>
           <Col style={{alignItems: 'center', justifyContent: 'center'}}>
             <Thumbnail large source={{uri:this.props.image}} />
           </Col>
@@ -18,46 +26,51 @@ class Calculator extends Component {
             <Row size={2} style={{ width:'90%', alignSelf: 'center'}}>
               <Text style={styles.nameText}>{this.props.name}</Text>
             </Row>
-            <Row size={3} style={styles.pointsRow}>
+            <Row size={2} style={styles.pointsRow}>
               <Text style={styles.textInput}>{this.state.points}</Text>
             </Row>
           </Col>
         </Row>
-        <Row size={60}>
-          <Col>
-            <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
-              <Button style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
+        <Row size={35}>
+          <Col style={{margin: 10}}>
+            <Row size={1} style={{justifyContent:'space-between', alignItems: 'center'}}>
+              <Button  onPress={() => this.calculator(+1)} style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
                 <Text style={styles.buttonText}>+1</Text>
               </Button>
-              <Button style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
+              <Button  onPress={() => this.calculator(+10)} style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
                 <Text style={styles.buttonText}>+10</Text>
               </Button>
-              <Button style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
+              <Button  onPress={() => this.calculator(+50)} style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
                 <Text style={styles.buttonText}>+50</Text>
               </Button>
-              <Button style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
+              <Button  onPress={() => this.calculator(+100)}  style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
                 <Text style={styles.buttonText}>+100</Text>
               </Button>
             </Row>
-            <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
-              <Button style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
+            <Row size={1} style={{justifyContent:'space-between', alignItems: 'center'}}>
+              <Button  onPress={() => this.calculator(-1)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
                 <Text style={styles.buttonText}>-1</Text>
               </Button>
-              <Button style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
+              <Button  onPress={() => this.calculator(-10)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
                 <Text style={styles.buttonText}>-10</Text>
               </Button>
-              <Button style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
+              <Button  onPress={() => this.calculator(-50)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
                 <Text style={styles.buttonText}>-50</Text>
               </Button>
-              <Button style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
+              <Button  onPress={() => this.calculator(-100)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
                 <Text style={styles.buttonText}>-100</Text>
               </Button>
             </Row>
-            <Row size={2}>
-              <Text>VOLVER</Text>
-            </Row>
           </Col>
         </Row>
+          <Row size={35} style={{margin:10, alignItems:'flex-start', justifyContent: 'space-between'}}>
+            <Button style={[styles.buttonCalculator, {height: '20%', backgroundColor: 'gray', marginRight: 20}]}>
+              <Text style={styles.buttonText}>CANCELAR</Text>
+            </Button>
+            <Button style={[styles.buttonCalculator, {height: '20%', backgroundColor: '#008AC5', marginLeft: 20}]}>
+              <Text style={styles.buttonText}>ENVIAR</Text>
+            </Button>
+          </Row>
       </Grid>
     );
   }
