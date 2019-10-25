@@ -3,6 +3,10 @@ import { StyleSheet, TextInput } from 'react-native'
 import { Col, Row, Thumbnail, Text, Button, Grid, Input } from 'native-base';
 
 class Calculator extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { points : 0 }
+  }
   render() {
     return (
       <Grid style={{backgroundColor: '#E7E7E7'}}>
@@ -15,7 +19,7 @@ class Calculator extends Component {
               <Text style={styles.nameText}>{this.props.name}</Text>
             </Row>
             <Row size={3} style={styles.pointsRow}>
-              <Input style={styles.textInput} maxLength={7} />
+              <Text style={styles.textInput}>{this.state.points}</Text>
             </Row>
             <Row size={1} style={{margin: 10, justifyContent:'space-between'}}>
               <Button style={[{backgroundColor: '#3D88A9'},styles.addOrSubButton]}>
@@ -65,7 +69,8 @@ const styles = StyleSheet.create({
   nameText: {
     fontSize: 20, 
     margin: 10, 
-    fontFamily: 'Baloo', 
+    fontFamily: 'Baloo',
+    alignSelf: 'center'
   },
   pointsRow: {
     width:'90%', 
@@ -77,6 +82,7 @@ const styles = StyleSheet.create({
   },
   textInput: {
     width:'80%',
+    textAlign: 'right',
     fontSize: 35,
     fontFamily: 'Baloo',
     margin: 10
