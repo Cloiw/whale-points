@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { StyleSheet, TextInput } from 'react-native'
-import { Col, Row, Thumbnail, Text, Button, Grid, Input } from 'native-base';
+import { StyleSheet } from 'react-native'
+import { Col, Row, Thumbnail, Text, Button, Grid} from 'native-base';
 
 class Calculator extends Component {
   constructor(props) {
     super(props)
     this.state = { points : 0 }
     this.calculator = this.calculator.bind(this)
-    this.calculatorAddButtons = [+1, +10, +50, +100]
+    this.calculatorAddButtons = [1, 10, 50, 100]
     this.calculatorSubButtons = [-1, -10, -50, -100]
   }
 
@@ -34,32 +34,18 @@ class Calculator extends Component {
         <Row size={35}>
           <Col style={{margin: 10}}>
             <Row size={1} style={{justifyContent:'space-between', alignItems: 'center'}}>
-              <Button  onPress={() => this.calculator(+1)} style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
-                <Text style={styles.buttonText}>+1</Text>
+              {this.calculatorAddButtons.map(element => 
+              <Button  onPress={() => this.calculator(element)} style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
+                <Text style={styles.buttonText}>+{element}</Text>
               </Button>
-              <Button  onPress={() => this.calculator(+10)} style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
-                <Text style={styles.buttonText}>+10</Text>
-              </Button>
-              <Button  onPress={() => this.calculator(+50)} style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
-                <Text style={styles.buttonText}>+50</Text>
-              </Button>
-              <Button  onPress={() => this.calculator(+100)}  style={[styles.buttonCalculator, {backgroundColor: '#3D88A9'}]}>
-                <Text style={styles.buttonText}>+100</Text>
-              </Button>
+              )}
             </Row>
             <Row size={1} style={{justifyContent:'space-between', alignItems: 'center'}}>
-              <Button  onPress={() => this.calculator(-1)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
-                <Text style={styles.buttonText}>-1</Text>
+              {this.calculatorSubButtons.map(element => 
+              <Button  onPress={() => this.calculator(element)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
+                <Text style={styles.buttonText}>{element}</Text>
               </Button>
-              <Button  onPress={() => this.calculator(-10)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
-                <Text style={styles.buttonText}>-10</Text>
-              </Button>
-              <Button  onPress={() => this.calculator(-50)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
-                <Text style={styles.buttonText}>-50</Text>
-              </Button>
-              <Button  onPress={() => this.calculator(-100)} style={[styles.buttonCalculator, {backgroundColor: '#ED6A6A'}]}>
-                <Text style={styles.buttonText}>-100</Text>
-              </Button>
+              )}
             </Row>
           </Col>
         </Row>
