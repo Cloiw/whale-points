@@ -12,9 +12,16 @@ class Calculator extends Component {
   }
 
   calculator(value) {
+    if (value === 'reset') {
+      return this.setState({
+        points: 0
+      })
+
+    }
     this.setState({
       points: this.state.points + value})
   }
+  
   render() {
     return (
       <Grid style={{backgroundColor: '#E7E7E7'}}>
@@ -49,14 +56,19 @@ class Calculator extends Component {
             </Row>
           </Col>
         </Row>
-          <Row size={35} style={{margin:10, alignItems:'flex-start', justifyContent: 'space-between'}}>
-            <Button style={[styles.buttonCalculator, {height: '20%', backgroundColor: 'gray', marginRight: 20}]}>
-              <Text style={styles.buttonText}>CANCELAR</Text>
-            </Button>
-            <Button style={[styles.buttonCalculator, {height: '20%', backgroundColor: '#008AC5', marginLeft: 20}]}>
-              <Text style={styles.buttonText}>ENVIAR</Text>
-            </Button>
-          </Row>
+        <Row size={5} style={{marginRight:10, marginLeft: 10}}>
+          <Button  onPress={() => this.calculator('reset') }style={[styles.buttonCalculator, {backgroundColor: 'gray'}]}>
+            <Text style={styles.buttonText}>Reset</Text>
+          </Button>
+        </Row>
+        <Row size={30} style={{margin:10, alignItems:'flex-start', justifyContent: 'space-between'}}>
+          <Button style={[styles.buttonCalculator, {height: '20%', backgroundColor: 'gray', marginRight: 20}]}>
+            <Text style={styles.buttonText}>Cancelar</Text>
+          </Button>
+          <Button style={[styles.buttonCalculator, {height: '20%', backgroundColor: '#008AC5', marginLeft: 20}]}>
+            <Text style={styles.buttonText}>Enviar</Text>
+          </Button>
+        </Row>
       </Grid>
     );
   }
