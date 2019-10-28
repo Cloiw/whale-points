@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native'
 import { AsyncStorage } from 'react-native';
-import { Container, Header, Content, Form, Item, Input, Label, Button, Text, Grid, Col, Row, Right } from 'native-base';
+import { Container, Header, Spinner, Form, Item, Input, Label, Button, Text, Grid, Col, Row, Right } from 'native-base';
 
 
 class Login extends Component {
   constructor (props) {
     super(props);
-    this.state = { username: "", password: ""}
+    this.state = { username: "", password: "", errormsg: ""}
   }
 
   _signIn = async () => {
+    this.setState({errormsg : '', loading: true})
     try {
       let response = await fetch('https://whalepoints.herokuapp.com/login', {
         method: 'POST',
@@ -26,16 +27,18 @@ class Login extends Component {
       if( response.status === 401){
         this.setState({errormsg : 'Usuario o contraseña incorrecta'})
       }
-      if(response.status === 200){
+      else if(response.status === 200){
         await AsyncStorage.setItem('userToken', parseResponse);
         this.props.navigation.navigate('App');
+        this.setState({ errormsg : ''})
       }
       else {
-        this.setState({errormsg : 'Servidor no disponible'})
+        this.setState({ errormsg : 'Servidor no disponible' })
       }
     } catch (error) {
       console.log("Error", error)
     }
+    this.setState({ loading: false })
   };
   
   
@@ -51,21 +54,25 @@ class Login extends Component {
               <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo'}} >WhalePoints</Text>
             </Col>
           </Row>
+          <Row size={5} style={{justifyContent:'center', alignSelf: 'center'}}>
+          {this.state.loading ? <Spinner color='blue' /> : null}
+          {this.state.errormsg != null ? (<Text style={[styles.label,{color: '#cd0000'}]}>{this.state.errormsg}</Text>): null}
+          </Row>
           <Row size={25}  style={{alignItems:'center'}}>
             <Col>
               <Form style={{width:'90%', justifyContent:'center', alignSelf: 'center'}}>
                 <Item style={styles.item} stackedLabel>
                   <Label style={styles.label}>Usuario</Label>
-                  <Input onChangeText={val => this.setState({ username: val })} style={styles.input} />
+                  <Input editable={this.state.loading ? false : true} onChangeText={val => this.setState({ username: val })} style={styles.input} />
                 </Item>
                 <Item style={styles.item} stackedLabel last>
                   <Label style={styles.label}>Contraseña</Label>
-                  <Input secureTextEntry={true} onChangeText={val => this.setState({ password: val })} style={styles.input} />
+                  <Input editable={this.state.loading ? false : true} secureTextEntry={true} onChangeText={val => this.setState({ password: val })} style={styles.input} />
                 </Item>
               </Form>
             </Col>
           </Row>
-          <Row size={35} style={{justifyContent:'center', alignItems: 'center'}}>
+          <Row size={30} style={{justifyContent:'center', alignItems: 'center'}}>
             <Button onPress={() => this._signIn()}style={{backgroundColor: '#008AC5', width: '90%', height: '20%', alignSelf: 'flex-start'}}>
               <Text uppercase={false}>Entrar</Text>
             </Button>
