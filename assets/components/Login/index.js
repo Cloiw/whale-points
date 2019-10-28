@@ -25,20 +25,20 @@ class Login extends Component {
       })
       let parseResponse = await response.json();
       if( response.status === 401){
-        this.setState({errormsg : 'Usuario o contraseña incorrecta'})
+        this.setState({errormsg : 'Usuario o contraseña incorrecta', loading: false})
       }
       else if(response.status === 200){
-        await AsyncStorage.setItem('userToken', parseResponse);
+        await AsyncStorage.setItem('userToken', parseResponse.token);
         this.props.navigation.navigate('App');
-        this.setState({ errormsg : ''})
       }
       else {
-        this.setState({ errormsg : 'Servidor no disponible' })
+        this.setState({ errormsg : 'Servidor no disponible', loading: false })
       }
     } catch (error) {
       console.log("Error", error)
+      this.setState({ loading: false })
     }
-    this.setState({ loading: false })
+    
   };
   
   
