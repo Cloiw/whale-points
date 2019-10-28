@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native'
+import { StyleSheet, AsyncStorage } from 'react-native'
 import { Container, Text, Header, Grid, TabHeading, Row, Button, Icon, Col, Content, Tab, Tabs, Thumbnail } from 'native-base';
 import ScoreTable from '../ScoreTable';
 import SelectUser from '../SelectUser'
@@ -9,7 +9,7 @@ class Home extends Component {
     super(props);
     this.state = { currentTabPosition: 0};
     this.getPositionTab = this.getPositionTab.bind(this);
-    
+    this._logout = this._logout.bind(this)
   }
   
   getPositionTab(i) {
@@ -18,6 +18,15 @@ class Home extends Component {
     })
   }
 
+  async _logout() {
+    try {
+    await AsyncStorage.clear();
+    } catch (error) {
+      console.log("Error", error)
+    }
+    this.props.navigation.navigate('Auth');
+  }
+  
   render(){
     return (
       <Container style={{backgroundColor:'#E7E7E7'}}>
@@ -34,6 +43,7 @@ class Home extends Component {
             </Col>
             <Col style={styles.headerInfoColumn}>
               <Row size={1}>
+                <Button onPress={()=>this._logout()}><Text>logout</Text></Button>
                 <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo', color: 'white'}} >Nombre</Text>
               </Row>
               <Row size={1} style={{justifyContent: 'flex-end', backgroundColor: 'white'}}>

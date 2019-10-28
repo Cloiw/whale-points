@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native'
+import { AsyncStorage } from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Label, Button, Text, Grid, Col, Row, Right } from 'native-base';
 
 
@@ -8,6 +9,18 @@ class Login extends Component {
     super(props);
     this.state = { username: "", password: ""}
   }
+
+  _signIn = async () => {
+    try {
+    await AsyncStorage.setItem('userToken', 'abc');
+  } catch (error) {
+    console.log("Error", error)
+  }
+    this.props.navigation.navigate('App');
+  };
+  
+  
+
   render() {
     console.log(this.state.username, this.state.password)
     return (
@@ -34,7 +47,7 @@ class Login extends Component {
             </Col>
           </Row>
           <Row size={35} style={{justifyContent:'center', alignItems: 'center'}}>
-            <Button onPress={() => this.props.changeLoginStatus()}style={{backgroundColor: '#008AC5', width: '90%', height: '20%', alignSelf: 'flex-start'}}>
+            <Button onPress={() => this._signIn()}style={{backgroundColor: '#008AC5', width: '90%', height: '20%', alignSelf: 'flex-start'}}>
               <Text uppercase={false}>Entrar</Text>
             </Button>
           </Row>

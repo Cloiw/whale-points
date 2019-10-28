@@ -2,17 +2,14 @@ import React from 'react';
 import { AppLoading } from 'expo';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import Home from './assets/components/Home';
-import Login from './assets/components/Login';
+import AppContainer from './assets/navigation/AppContainer';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isReady: false,
-      isLogin: false,
     };
-    this.changeLogin = this.changeLogin.bind(this)
   }
 
   async componentDidMount() {
@@ -25,12 +22,7 @@ class App extends React.Component {
     this.setState({ isReady: true });
   }
 
-  changeLogin() {
-    console.log("change view")
-    this.setState({
-      isLogin: true
-    })
-  }
+
 
   render() {
     if (!this.state.isReady) {
@@ -38,7 +30,7 @@ class App extends React.Component {
     }
 
     return (
-      this.state.isLogin ? <Home /> : <Login changeLoginStatus={this.changeLogin} />
+      <AppContainer />
     );
   }
 }
