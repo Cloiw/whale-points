@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, AsyncStorage } from 'react-native'
+import { StyleSheet, AsyncStorage, TouchableOpacity } from 'react-native'
 import { Container, Text, Header, Grid, TabHeading, Row, Button, Icon, Col, Content, Tab, Tabs, Thumbnail } from 'native-base';
 import ScoreTable from '../ScoreTable';
 import SelectUser from '../SelectUser'
@@ -35,7 +35,11 @@ class Home extends Component {
             <Col style={styles.headerThumbailColumn}>
               <Thumbnail large source={{uri:'https://i.ibb.co/z5h63TR/lokibb.jpg'}} style={styles.thumbnail} />
               <Row size={1}>
-              <Content></Content>
+                <Col>
+                  <TouchableOpacity style={styles.logout} onPress={()=>this._logout()}>
+                    <Icon type="SimpleLineIcons" name="logout" />
+                  </TouchableOpacity >
+                </Col>
               </Row>
               <Row size={1}>
                 <Content style={styles.whiteBackground}></Content>
@@ -43,7 +47,6 @@ class Home extends Component {
             </Col>
             <Col style={styles.headerInfoColumn}>
               <Row size={1}>
-                <Button onPress={()=>this._logout()}><Text>logout</Text></Button>
                 <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo', color: 'white'}} >Nombre</Text>
               </Row>
               <Row size={1} style={{justifyContent: 'flex-end', backgroundColor: 'white'}}>
@@ -107,6 +110,10 @@ const styles = StyleSheet.create({
   },
   tabs: {
     backgroundColor:'#008AC5',
+  },
+  logout: {
+    width: '30%',
+    borderColor: 'white',
   }
 })
 

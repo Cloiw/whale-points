@@ -12,11 +12,30 @@ class Login extends Component {
 
   _signIn = async () => {
     try {
-    await AsyncStorage.setItem('userToken', 'abc');
-  } catch (error) {
-    console.log("Error", error)
-  }
-    this.props.navigation.navigate('App');
+      let response = await fetch('https://whalepoints.herokuapp.com/login', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          username: this.state.username,
+          password: this.state.password,
+        })
+      })
+      let parseResponse = await response.json();
+      if( response.status === 401){
+        this.setState({errormsg : 'Usuario o contraseña incorrecta'})
+      }
+      if(response.status === 200){
+        await AsyncStorage.setItem('userToken', parseResponse);
+        this.props.navigation.navigate('App');
+      }
+      else {
+        this.setState({errormsg : 'Servidor no disponible'})
+      }
+    } catch (error) {
+      console.log("Error", error)
+    }
   };
   
   
