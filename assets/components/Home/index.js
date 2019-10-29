@@ -44,9 +44,9 @@ class Home extends Component {
             <Col style={styles.headerThumbailColumn}>
               <Thumbnail large source={{uri: this.state.profile_picture}} style={styles.thumbnail} />
               <Row size={1}>
-                <Col>
+                <Col style={{justifyContent: 'center'}}>
                   <TouchableOpacity style={styles.logout} onPress={()=>this._logout()}>
-                    <Icon type="SimpleLineIcons" name="logout" />
+                    <Icon style={{color: 'white', alignSelf: 'center'}} type="SimpleLineIcons" name="logout" />
                   </TouchableOpacity >
                 </Col>
               </Row>
@@ -104,7 +104,8 @@ const styles = StyleSheet.create({
     borderColor: 'white',
     borderWidth: 2,
     position: 'absolute',
-    zIndex: 2
+    zIndex: 2,
+    backgroundColor: 'black'
   },
   whiteBackground: {
     backgroundColor: 'white',
