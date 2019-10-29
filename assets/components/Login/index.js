@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native'
-import { AsyncStorage, KeyboardAvoidingView, SafeAreaView } from 'react-native';
-import { Container, Content, Spinner, Form, Item, Input, Label, Button, Text, Grid, Col, Row, Right } from 'native-base';
+import { AsyncStorage, KeyboardAvoidingView } from 'react-native';
+import { Container, Spinner, Form, Item, Input, Label, Button, Text, Grid, Col, Row } from 'native-base';
 import { ScrollView } from 'react-native-gesture-handler';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-
-
 
 class Login extends Component {
   constructor (props) {
@@ -49,7 +46,7 @@ class Login extends Component {
         <ScrollView>
           <Container style={{backgroundColor:'#E7E7E7'}}>
             <Grid>
-              <Row size={4} style={{justifyContent:'center', alignItems: 'center'}}>
+              <Row size={4} style={{justifyContent:'center', alignItems: 'flex-end'}}>
                 <Col>
                   <Text style={{fontSize: 80, alignSelf: 'center'}} >🐳</Text>
                   <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo'}} >WhalePoints</Text>

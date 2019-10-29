@@ -21,15 +21,15 @@ class Home extends Component {
   async componentDidMount() {
     const getData = await AsyncStorage.getItem('userData')
     const jsonData = JSON.parse(getData)
-
     this.setState({
       name: jsonData.user.name,
       profile_picture: jsonData.user.profile_picture
     })
   }
+  
   async _logout() {
     try {
-    await AsyncStorage.clear();
+      await AsyncStorage.clear();
     } catch (error) {
       console.log("Error", error)
     }

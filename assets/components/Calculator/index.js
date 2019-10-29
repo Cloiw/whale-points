@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
 import { Col, Row, Thumbnail, Text, Button, Grid} from 'native-base';
 
 class Calculator extends Component {
@@ -25,9 +25,9 @@ class Calculator extends Component {
   render() {
     return (
       <Grid style={{backgroundColor: '#E7E7E7'}}>
-        <Row size={30}>
+        <Row size={2}>
           <Col style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Thumbnail large source={{uri:this.props.image}} />
+            <Thumbnail square large source={{uri:this.props.image}} style={{borderRadius: 10}} />
           </Col>
           <Col>
             <Row size={2} style={{ width:'90%', alignSelf: 'center'}}>
@@ -38,7 +38,7 @@ class Calculator extends Component {
             </Row>
           </Col>
         </Row>
-        <Row size={35}>
+        <Row size={3}>
           <Col style={{margin: 10}}>
             <Row size={1} style={{justifyContent:'space-between', alignItems: 'center'}}>
               {this.calculatorAddButtons.map(element => 
@@ -56,16 +56,16 @@ class Calculator extends Component {
             </Row>
           </Col>
         </Row>
-        <Row size={5} style={{marginRight:10, marginLeft: 10}}>
+        <Row size={1} style={{marginRight:10, marginLeft: 10}}>
           <Button  onPress={() => this.calculator('reset') }style={[styles.buttonCalculator, {backgroundColor: 'gray'}]}>
             <Text style={styles.buttonText}>Reset</Text>
           </Button>
         </Row>
-        <Row size={30} style={{margin:10, alignItems:'flex-start', justifyContent: 'space-between'}}>
-          <Button style={[styles.buttonCalculator, {height: '20%', backgroundColor: 'gray', marginRight: 20}]}>
+        <Row size={3} style={{margin:10, alignItems:'center', justifyContent: 'space-between'}}>
+          <Button style={[styles.buttonCalculator, {height: '25%', backgroundColor: 'gray', marginRight: 20}]}>
             <Text style={styles.buttonText}>Cancelar</Text>
           </Button>
-          <Button style={[styles.buttonCalculator, {height: '20%', backgroundColor: '#008AC5', marginLeft: 20}]}>
+          <Button style={[styles.buttonCalculator, {height: '25%', backgroundColor: '#008AC5', marginLeft: 20}]}>
             <Text style={styles.buttonText}>Enviar</Text>
           </Button>
         </Row>
