@@ -26,7 +26,7 @@ class Calculator extends Component {
     return (
       <Grid style={{backgroundColor: '#E7E7E7'}}>
         <Row size={2}>
-          <Col style={{alignItems: 'center', justifyContent: 'center'}}>
+          <Col style={{alignItems: 'center', justifyContent: 'flex-end'}}>
             <Thumbnail square large source={{uri:this.props.image}} style={{borderRadius: 10}} />
           </Col>
           <Col>
