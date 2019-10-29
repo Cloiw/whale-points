@@ -31,7 +31,7 @@ class Login extends Component {
         this.setState({errormsg : 'Usuario o contraseña incorrecta', loading: false})
       }
       else if(response.status === 200){
-        await AsyncStorage.setItem('userToken', parseResponse.token);
+        await AsyncStorage.setItem('userData', JSON.stringify(parseResponse));
         this.props.navigation.navigate('App');
       }
       else {

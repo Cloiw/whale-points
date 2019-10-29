@@ -7,7 +7,7 @@ import SelectUser from '../SelectUser'
 class Home extends Component {
   constructor(props){
     super(props);
-    this.state = { currentTabPosition: 0};
+    this.state = { currentTabPosition: 0, name: null};
     this.getPositionTab = this.getPositionTab.bind(this);
     this._logout = this._logout.bind(this)
   }
@@ -18,6 +18,15 @@ class Home extends Component {
     })
   }
 
+  async componentDidMount() {
+    const getData = await AsyncStorage.getItem('userData')
+    const jsonData = JSON.parse(getData)
+
+    this.setState({
+      name: jsonData.user.name,
+      profile_picture: jsonData.user.profile_picture
+    })
+  }
   async _logout() {
     try {
     await AsyncStorage.clear();
@@ -33,7 +42,7 @@ class Home extends Component {
         <Grid>
           <Row size={20} style={{ backgroundColor: '#008AC5', height: '100%'}}>
             <Col style={styles.headerThumbailColumn}>
-              <Thumbnail large source={{uri:'https://i.ibb.co/z5h63TR/lokibb.jpg'}} style={styles.thumbnail} />
+              <Thumbnail large source={{uri: this.state.profile_picture}} style={styles.thumbnail} />
               <Row size={1}>
                 <Col>
                   <TouchableOpacity style={styles.logout} onPress={()=>this._logout()}>
@@ -47,7 +56,7 @@ class Home extends Component {
             </Col>
             <Col style={styles.headerInfoColumn}>
               <Row size={1}>
-                <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo', color: 'white'}} >Nombre</Text>
+                <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo', color: 'white'}} >{this.state.name}</Text>
               </Row>
               <Row size={1} style={{justifyContent: 'flex-end', backgroundColor: 'white'}}>
                 <Text style={{fontSize: 30, fontFamily: 'Baloo', marginRight:10, alignSelf: 'center'}} >500</Text>
