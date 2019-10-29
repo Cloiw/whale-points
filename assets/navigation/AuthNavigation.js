@@ -1,11 +1,11 @@
 import { createStackNavigator } from 'react-navigation-stack'
 import Login from '../components/Login'
-// import Signup from '../screens/Signup'
+import Signup from '../components/Signup'
 
 const AuthNavigation = createStackNavigator(
   {
     Login: { screen: Login },
-    // Signup: { screen: Signup }
+    Signup: { screen: Signup }
   },
   {
     initialRouteName: 'Login',

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native'
-import { AsyncStorage } from 'react-native';
-import { Container, Header, Spinner, Form, Item, Input, Label, Button, Text, Grid, Col, Row, Right } from 'native-base';
+import { AsyncStorage, KeyboardAvoidingView, SafeAreaView } from 'react-native';
+import { Container, Content, Spinner, Form, Item, Input, Label, Button, Text, Grid, Col, Row, Right } from 'native-base';
+import { ScrollView } from 'react-native-gesture-handler';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 
 
 class Login extends Component {
@@ -38,47 +41,47 @@ class Login extends Component {
       console.log("Error", error)
       this.setState({ loading: false })
     }
-    
   };
   
-  
-
   render() {
-    console.log(this.state.username, this.state.password)
     return (
-      <Container style={{backgroundColor:'#E7E7E7'}}>
-        <Grid>
-          <Row size={40} style={{justifyContent:'center', alignItems: 'center'}}>
-            <Col>
-              <Text style={{fontSize: 80, alignSelf: 'center'}} >🐳</Text>
-              <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo'}} >WhalePoints</Text>
-            </Col>
-          </Row>
-          <Row size={5} style={{justifyContent:'center', alignSelf: 'center'}}>
-          {this.state.loading ? <Spinner color='blue' /> : null}
-          {this.state.errormsg != null ? (<Text style={[styles.label,{color: '#cd0000'}]}>{this.state.errormsg}</Text>): null}
-          </Row>
-          <Row size={25}  style={{alignItems:'center'}}>
-            <Col>
-              <Form style={{width:'90%', justifyContent:'center', alignSelf: 'center'}}>
-                <Item style={styles.item} stackedLabel>
-                  <Label style={styles.label}>Usuario</Label>
-                  <Input editable={this.state.loading ? false : true} onChangeText={val => this.setState({ username: val })} style={styles.input} />
-                </Item>
-                <Item style={styles.item} stackedLabel last>
-                  <Label style={styles.label}>Contraseña</Label>
-                  <Input editable={this.state.loading ? false : true} secureTextEntry={true} onChangeText={val => this.setState({ password: val })} style={styles.input} />
-                </Item>
-              </Form>
-            </Col>
-          </Row>
-          <Row size={30} style={{justifyContent:'center', alignItems: 'center'}}>
-            <Button onPress={() => this._signIn()}style={{backgroundColor: '#008AC5', width: '90%', height: '20%', alignSelf: 'flex-start'}}>
-              <Text uppercase={false}>Entrar</Text>
-            </Button>
-          </Row>
-        </Grid>
-      </Container>
+      <KeyboardAvoidingView enable behavior="padding" keyboardVerticalOffset={10} style={{ flex: 1, backgroundColor:'#E7E7E7' }}>
+        <ScrollView>
+          <Container style={{backgroundColor:'#E7E7E7'}}>
+            <Grid>
+              <Row size={4} style={{justifyContent:'center', alignItems: 'center'}}>
+                <Col>
+                  <Text style={{fontSize: 80, alignSelf: 'center'}} >🐳</Text>
+                  <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo'}} >WhalePoints</Text>
+                </Col>
+              </Row>
+              <Row size={1} style={{justifyContent:'center', alignSelf: 'center'}}>
+              {this.state.loading ? <Spinner color='blue' /> : null}
+              {this.state.errormsg != null ? (<Text style={[styles.label,{color: '#cd0000', alignSelf: 'center'}]}>{this.state.errormsg}</Text>): null}
+              </Row>
+              <Row size={3}>
+                <Col>
+                  <Form style={{width:'90%', alignSelf: 'center'}}>
+                    <Item style={styles.item} stackedLabel>
+                      <Label style={styles.label}>Usuario</Label>
+                      <Input editable={this.state.loading ? false : true} onChangeText={val => this.setState({ username: val })} style={styles.input} />
+                    </Item>
+                    <Item style={styles.item} stackedLabel last>
+                      <Label style={styles.label}>Contraseña</Label>
+                      <Input editable={this.state.loading ? false : true} secureTextEntry={true} onChangeText={val => this.setState({ password: val })} style={styles.input} />
+                    </Item>
+                  </Form>
+                </Col>
+              </Row>
+              <Row size={3} style={{justifyContent:'center', alignItems: 'center'}}>
+                <Button onPress={() => this._signIn()}style={{backgroundColor: '#008AC5', width: '90%', height: '25%', alignSelf: 'flex-start'}}>
+                  <Text uppercase={false}>Entrar</Text>
+                </Button>
+              </Row>
+            </Grid>
+          </Container>
+        </ScrollView>
+      </KeyboardAvoidingView>
     );
   }
 }

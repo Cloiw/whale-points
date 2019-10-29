@@ -50,7 +50,7 @@ class Home extends Component {
                 <Text style={{fontSize: 30, alignSelf: 'center', fontFamily: 'Baloo', color: 'white'}} >Nombre</Text>
               </Row>
               <Row size={1} style={{justifyContent: 'flex-end', backgroundColor: 'white'}}>
-                <Text style={{fontSize: 30, fontFamily: 'Baloo', marginRight:10, alignSelf: 'center'}} >50000</Text>
+                <Text style={{fontSize: 30, fontFamily: 'Baloo', marginRight:10, alignSelf: 'center'}} >500</Text>
               </Row>
             </Col>
           </Row>
