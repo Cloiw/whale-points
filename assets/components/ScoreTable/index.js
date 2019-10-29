@@ -26,7 +26,7 @@ class ScoreTable extends Component {
         <Content>
           {this.state.users_table.length === 0 ? null : 
           this.state.users_table.map(element => 
-            <InfoCard key={element.id} ranking={1} image={element.profile_picture} name={element.name} points={57777}/>
+            <InfoCard key={element._id} ranking={1} image={element.profile_picture} name={element.name} points={57777}/>
           )} 
         </Content>
       </Container>
