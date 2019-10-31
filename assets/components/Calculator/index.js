@@ -27,11 +27,11 @@ class Calculator extends Component {
       <Grid style={{backgroundColor: '#E7E7E7'}}>
         <Row size={2}>
           <Col style={{alignItems: 'center', justifyContent: 'flex-end'}}>
-            <Thumbnail square large source={{uri:this.props.image}} style={{borderRadius: 10}} />
+            <Thumbnail square large source={{uri:this.props.imageReceiver}} style={{borderRadius: 10}} />
           </Col>
           <Col>
             <Row size={2} style={{ width:'90%', alignSelf: 'center'}}>
-              <Text style={styles.nameText}>{this.props.name}</Text>
+              <Text style={styles.nameText}>{this.props.nameReceiver}</Text>
             </Row>
             <Row size={2} style={styles.pointsRow}>
               <Text style={styles.textInput}>{this.state.points}</Text>
